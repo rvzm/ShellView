@@ -2,7 +2,7 @@
 # requires root
 
 ## description
-ShellView is a "prettier" alternative to `tail` that uses `dialog` to show logs.
+ShellView is a system admin utility for checking various logs, reports, and system information.
 
 ## current views
  - SSH: Brute-force (failed) login attempts
@@ -13,7 +13,8 @@ ShellView is a "prettier" alternative to `tail` that uses `dialog` to show logs.
  - Apache2: access log
  - Apache2: error log
  - Apache2: Sites enabled
- - System Load
+ - System: Load
+ - System: Disk usage
 
 ## setup
 - git clone https://github.com/rvzm/sshcheck.git

@@ -1,5 +1,5 @@
 #!/bin/sh
-# ShellView v0.3
+# ShellView v0.4
 _has-a2=$(dpkg-query -W --showformat='${status}\n' apache2|grep "install ok installed")
 _has-f2b=$(dpkg-query -W --showformat='${Status}\n' fail2ban|grep "install ok installed")
 dialog --backtitle "ShellView" \

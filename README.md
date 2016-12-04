@@ -10,6 +10,8 @@ ShellView is a system admin utility for checking various logs, reports, and syst
  - fail2ban: warnings
  - fail2ban: info
  - fail2ban: all actions
+ - fail2ban: bans
+ - fail2ban: unbans
  - Apache2: access log
  - Apache2: error log
  - Apache2: Sites enabled
@@ -17,7 +19,7 @@ ShellView is a system admin utility for checking various logs, reports, and syst
  - System: Disk usage
 
 ## setup
-- git clone https://github.com/rvzm/ShellView.git
+- git clone https://github.com/rvzm/ShellView.git shellview/
 - cd shellview
 - ./shellview
 

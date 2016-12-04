@@ -17,7 +17,7 @@ ShellView is a system admin utility for checking various logs, reports, and syst
  - System: Disk usage
 
 ## setup
-- git clone https://github.com/rvzm/sshcheck.git
+- git clone https://github.com/rvzm/ShellView.git
 - cd shellview
 - ./shellview
 

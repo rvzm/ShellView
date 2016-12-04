@@ -4,7 +4,7 @@ has-a2=$(dpkg-query -W --showformat='${status}\n' apache2|grep "install ok insta
 has-f2b=$(dpkg-query -W --showformat='${Status}\n' fail2ban|grep "install ok installed")
 dialog --backtitle "ShellView" \
 	--title "ShellView 0.2" \
-	--menu "Select which log you'd like to view" 20 100 7 \
+	--menu "Select which log you'd like to view" 20 100 9 \
 	bruteforce "SSH: Brute-force attempts" \
 	fconn "SSH: Failed connections" \
 	fail2ban-warn "Fail2ban: Log WARN" \

@@ -4,7 +4,7 @@ has-a2=$(dpkg-query -W --showformat='${status}\n' apache2|grep "install ok insta
 has-f2b=$(dpkg-query -W --showformat='${Status}\n' fail2ban|grep "install ok installed")
 dialog --backtitle "ShellView" \
 	--title "ShellView 0.3" \
-	--menu "Please select a view" 20 100 10 \
+	--menu "Please select a view" 20 100 11 \
 	bruteforce "SSH: Brute-force attempts" \
 	fconn "SSH: Failed connections" \
 	fail2ban-warn "Fail2ban: Log WARN" \
@@ -15,6 +15,7 @@ dialog --backtitle "ShellView" \
 	apache2enabled "Apache2: Enabled sites" \
 	sysload "System: Load" \
 	sysdrive "System: Drive space" \
+	about "About ShellView" \
 	2>temp
 if [ "$?" = "0" ]
 then
@@ -72,9 +73,13 @@ then
 	then
 		~/shellview/tools/sysdrive.sh
 	fi
+	if [ "$_return" = "about" ]
+	then
+		~/shellview/tools/about.sh
+	fi
 else
 	echo "Error: canceled."
 fi
 
 rm -f temp
-# clear
+clear

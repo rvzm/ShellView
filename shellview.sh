@@ -1,10 +1,10 @@
 #!/bin/sh
-# ShellView v0.2
+# ShellView v0.3
 has-a2=$(dpkg-query -W --showformat='${status}\n' apache2|grep "install ok installed")
 has-f2b=$(dpkg-query -W --showformat='${Status}\n' fail2ban|grep "install ok installed")
 dialog --backtitle "ShellView" \
-	--title "ShellView 0.2" \
-	--menu "Select which log you'd like to view" 20 100 9 \
+	--title "ShellView 0.3" \
+	--menu "Please select a view" 20 100 10 \
 	bruteforce "SSH: Brute-force attempts" \
 	fconn "SSH: Failed connections" \
 	fail2ban-warn "Fail2ban: Log WARN" \
@@ -13,7 +13,8 @@ dialog --backtitle "ShellView" \
 	apache2error "Apache2: Error log" \
 	apache2access "Apache2: Access log" \
 	apache2enabled "Apache2: Enabled sites" \
-	sysload "System load" \
+	sysload "System: Load" \
+	sysdrive "System: Drive space" \
 	2>temp
 if [ "$?" = "0" ]
 then
@@ -67,9 +68,13 @@ then
 	then
 		~/shellview/tools/sysload.sh
 	fi
+	if [ "$_return" = "sysdrive" ]
+	then
+		~/shellview/tools/sysdrive.sh
+	fi
 else
 	echo "Error: canceled."
 fi
 
 rm -f temp
-clear
+# clear

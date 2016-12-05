@@ -1,6 +1,6 @@
 #!/bin/bash
 dialog --backtitle "ShellView" \
-	--title "Fail2ban Viewer" \
+	--title "ShellView - Fail2ban" \
 	--menu "Select view" 20 100 5 \
 	warn "Log: Warnings" \
 	info "Log: Info" \
@@ -12,6 +12,7 @@ dialog --backtitle "ShellView" \
 if [ "$?" = "0" ]
 then
 	_return=$(cat temp)
+	rm -f temp
 	if [ "$_return" = "warn" ]
 	then
 		~/shellview/check/fail2ban/warn.sh
@@ -32,4 +33,6 @@ then
 	then
 		~/shellview/check/fail2ban/unban.sh
 	fi
+else
+	~/shellview/shellview.sh
 fi

@@ -1,7 +1,9 @@
 #!/bin/sh
 # ShellView v0.4
+_has_dialog=$(dpkg-query -W --showformat='${status}\n' dialog|grep "install ok installed")
 _has-a2=$(dpkg-query -W --showformat='${status}\n' apache2|grep "install ok installed")
 _has-f2b=$(dpkg-query -W --showformat='${Status}\n' fail2ban|grep "install ok installed")
+if [ "$_has_dialog" != "" ]; then
 dialog --backtitle "ShellView" \
 	--title "ShellView 0.4" \
 	--cancel-button exit \
@@ -12,6 +14,9 @@ dialog --backtitle "ShellView" \
 	system "System" \
 	about "About ShellView" \
 	2>temp
+else
+	echo "dialog not installed. use 'apt-get install dialog' to install it."
+fi
 if [ "$?" = "0" ]
 then
 	_return=$(cat temp)
